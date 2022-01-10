@@ -1,5 +1,4 @@
-from flask import Flask
-from .env import KEY
 
+from flask import Flask
 app = Flask(__name__)
-app.secret_key = KEY
+app.secret_key = "shhhhhh"
