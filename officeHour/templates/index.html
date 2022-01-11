@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles.css') }}">
+    <title>Week 5 Office Hour</title>
+</head>
+<body>
+    <header>
+        <h1>Welcome</h1>
+        <nav>
+            {% block menu %}
+                {% include 'menu.html' %}
+            {% endblock menu %}
+        </nav>
+    </header>
+    <main>
+        {% for user in users %}
+            <h2>{{user.firstName}} {{user.lastName}}</h2>
+        {% endfor %}
+        <form action="/choseUser/" method='post'>
+            <label for="firstName"> Chose User</label>
+            <select name="firstName">
+                {% for user in users %}
+                    <option value="{{user.firstName}}">{{user.firstName}}</option>
+                {% endfor %}
+            </select>
+            <button>Submit User</button>
+        </form>
+    </main>
+</body>
+</html>
